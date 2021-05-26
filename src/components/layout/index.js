@@ -45,7 +45,7 @@ const Layout = ({
 				<>
 					<Navbar toggle={toggle} isOpen={isOpen} isHome={isHome} />
 					<Sidebar toggle={toggle} isOpen={isOpen} />
-					<Main>{children}</Main>
+					<main>{children}</main>
 					{offset > windowHeight / 2 && (
 						<FaArrowCircleUp className='scrollTop' onClick={scrollTop} />
 					)}
