@@ -1,0 +1,32 @@
+.about-class > .gatsby-image-wrapper {
+	width: 35%;
+	float: left;
+	object-fit: contain;
+}
+.about-class {
+	max-width: 90vw;
+	overflow: hidden;
+}
+.about-class > article > *:first-child {
+	margin-top: 0;
+}
+.about-class > article > *:last-child {
+	margin-bottom: 0;
+}
+@media screen and (min-width: 601px) {
+	.about-class > .gatsby-image-wrapper {
+		margin: 0 1rem;
+	}
+}
+@media screen and (max-width: 1024px) {
+	.about-class > .gatsby-image-wrapper {
+		width: 50%;
+	}
+}
+@media screen and (max-width: 600px) {
+	.about-class > .gatsby-image-wrapper {
+		width: calc(100% - 2rem);
+		margin-left: 1rem;
+		margin-bottom: 1rem;
+	}
+}

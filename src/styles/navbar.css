@@ -1,0 +1,226 @@
+.navbar {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	padding: 0 7vw;
+	font-size: 1.125rem;
+	z-index: 200;
+	height: 5.25rem;
+	background-color: var(--background-color);
+	max-width: 100vw;
+	overflow: hidden;
+} 
+.logo {
+	display: flex;
+	align-items: center;
+	transform: translate(0, 0) scale(1) rotate(0deg);
+	opacity: 1;
+	transition: opacity 0.05s, transform 0.3s;
+}
+.logo > img {
+	height: 4.5rem;
+	max-width: 100%;
+}
+.logo.hide {
+	transform: translate(40vw, 50vh) scale(0.01) rotate(720deg);
+	opacity: 0;
+	user-select: none;
+}
+@media screen and (max-aspect-ratio: 1/1) {
+	.logo.hide {
+		transform: translate(40vw, 30vh) scale(0.01) rotate(720deg);
+	}
+}
+
+.menu-items,
+.social-links {
+	display: flex;
+	justify-content: center;
+}
+.social-links > li {
+	margin: 0 0.25rem;
+}
+svg.icon {
+	transition: color 0.4s, transform 0.4s;
+}
+svg.icon:hover,
+a:hover,
+a.active-link {
+	color: var(--theme-color);
+}
+svg.icon:hover {
+	transform: rotate(360deg);
+}
+.menu-items {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-flow: row nowrap;
+}
+.menu-items > .page-links > a {
+	padding: 0 0.6rem;
+}
+aside .page-links > a {
+	padding: 0.6rem 0;
+}
+aside > article > .social-links {
+	margin: 0.6rem 0 0.6rem 0;
+}
+aside .icon {
+	margin: 0 0.25rem;
+}
+nav a {
+	text-transform: uppercase;
+}
+@media screen and (max-width: 1200px) {
+	.navbar .menu-items {
+		display: none;
+	}
+}
+aside {
+	display: flex;
+	position: fixed;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	max-width: 100vw;
+	overflow: hidden !important;
+	top: 5.125rem;
+	bottom: 0;
+	visibility: hidden;
+	z-index: -100;
+	transition: 0.4s ease-in-out;
+}
+aside.open {
+	visibility: visible;
+	z-index: 100;
+	background-color: rgba(34, 34, 34, 0.7);
+}
+aside > article {
+	width: 16rem;
+	max-width: 95%;
+	background-color: var(--background-color);
+	background-image: linear-gradient(
+		to bottom right,
+		#161616,
+		var(--background-color)
+	);
+	border-radius: 0.3125rem;
+	padding: 1rem;
+	box-shadow: inset 0.125rem 0.125rem 1.25rem -0.5rem rgba(0, 0, 0, 0.3),
+		0 3.125rem 6.25rem -1.25rem rgba(205, 205, 150, 0.25),
+		0 1.875rem 3.75rem -1.875rem rgba(255, 255, 255, 0.3);
+	transition: 0.4s ease-in-out;
+	transform: translate(30vw, -50vh) scaleY(0.1) scaleX(0.1);
+}
+aside.open > article {
+	transform: translate(0, 0) scaleY(1) scaleX(1);
+}
+aside > article > .page-links {
+	display: grid;
+	text-align: center;
+}
+aside a,
+aside .icon {
+	font-size: 1.375rem;
+}
+@media screen and (max-width: 600px) {
+	aside a,
+	aside .icon {
+		font-size: 1.25rem;
+	}
+	aside > article {
+		width: 14rem;
+	}
+}
+.social-links {
+	padding: 0;
+}
+#menu-icon {
+	background-color: transparent;
+	border: none;
+	font-size: 1.7rem;
+	padding: 0.25rem;
+	flex-direction: column;
+	cursor: pointer;
+	display: flex;
+}
+.menu-icon-bar1,
+.menu-icon-bar2,
+.menu-icon-bar3 {
+	width: 1.875rem;
+	height: 0.3125rem;
+	border-radius: 1.5625rem;
+	background-color: var(--main-font-color);
+	margin: 0.1875rem 0;
+	transition: 0.4s;
+}
+.change-menu-icon .menu-icon-bar1 {
+	transform: rotate(-45deg) translate(-0.5625rem, 0.325rem);
+}
+.change-menu-icon .menu-icon-bar2 {
+	opacity: 0;
+}
+.change-menu-icon .menu-icon-bar3 {
+	transform: rotate(45deg) translate(-0.5rem, -0.5rem);
+}
+@media screen and (min-width: 1201px) {
+	#menu-icon {
+		display: none;
+	}
+}
+
+aside.open :is(.page-links, .social-links) > *:first-of-type {
+	animation-delay: 0.125s;
+}
+aside.open :is(.page-links, .social-links) > *:nth-of-type(2) {
+	animation-delay: 0.25s;
+}
+aside.open :is(.page-links, .social-links) > *:nth-of-type(3) {
+	animation-delay: 0.375s;
+}
+aside.open :is(.page-links, .social-links) > *:nth-of-type(4) {
+	animation-delay: 0.5s;
+}
+aside.open :is(.page-links, .social-links) > *:nth-of-type(5) {
+	animation-delay: 0.625s;
+}
+aside.open :is(.page-links, .social-links) > *:nth-of-type(6) {
+	animation-delay: 0.75s;
+}
+aside.open :is(.page-links, .social-links) > *:nth-of-type(7) {
+	animation-delay: 0.875s;
+}
+aside.open :is(.page-links, .social-links) > * {
+	opacity: 0;
+}
+aside.open .page-links a {
+	animation: slideRight 0.5s ease-in-out 0.3s forwards;
+}
+aside.open .social-links > * {
+	animation: slideUp 0.5s ease-in-out 0.3s forwards;
+}
+@keyframes slideRight {
+	0% {
+		transform: translateX(-12.5rem);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+@keyframes slideUp {
+	0% {
+		transform: translateY(12.5rem);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}

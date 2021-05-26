@@ -1,0 +1,18 @@
+
+iframe {
+	border: none;
+	/* border: 0.1rem solid var(--theme-color); */
+	max-width: 100%;
+}
+iframe.map {
+	width: 40vw;
+}
+@media screen and (max-width: 800px) {
+	iframe.map {
+		width: 80vw;
+	}
+}
+iframe.gmiframe {
+	width: 100%;
+	border: none;
+}

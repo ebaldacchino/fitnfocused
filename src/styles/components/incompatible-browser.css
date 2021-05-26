@@ -1,0 +1,38 @@
+main.recommended-browsers {
+	display: flex;
+	justify-content: center;
+	min-height: 100vh;
+}
+section.recommended-browsers {
+	grid-template-columns: repeat(4, 1fr);
+	margin: 0;
+}
+.recommended-browsers a {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	height: 80%;
+	width: 80%;
+	background-color: #565656;
+	border-radius: 0.3125rem;
+}
+.recommended-browsers img {
+	width: auto;
+	height: 50%;
+}
+@media screen and (max-width: 800px) {
+	section.recommended-browsers {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media screen and (max-width: 500px) {
+	section.recommended-browsers {
+		grid-template-columns: 1fr;
+	}
+}
+@media screen and (min-width: 801px) {
+	.recommended-browsers h2 {
+		margin-top: 0;
+	}
+}

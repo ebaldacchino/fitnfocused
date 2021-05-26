@@ -1,0 +1,94 @@
+.testimonials-section {
+	max-width: 90%;
+}
+.testimonials-section > article {
+	overflow: hidden;
+	position: relative;
+	display: flex;
+}
+.quote-box {
+	display: flex;
+	align-items: space-between;
+	justify-content: space-between;
+	text-indent: 1rem;
+	align-items: flex-end;
+	line-height: 1.5rem;
+	padding: 1rem;
+	background-color: #161616;
+	box-shadow: inset 0.5rem 0.5rem 2rem -0.5rem rgb(0 0 0 / 80%);
+}
+.review-container.show {
+	opacity: 1;
+	transition: opacity 0.3s;
+}
+.review-container.hide {
+	opacity: 0.1;
+	transition: opacity 0.3s;
+}
+.review-container > p {
+	margin-left: 3rem;
+}
+.review-container {
+	min-width: 100%;
+	max-width: 100%;
+	height: min-content;
+}
+.quote-box svg.quotes {
+	color: #222;
+	filter: drop-shadow(0 0 0.3rem black);
+	display: flex;
+	align-items: center;
+	min-height: 2rem;
+	min-width: 2rem;
+}
+.quote-box > .left {
+	align-self: flex-start;
+}
+.quote-box > p {
+	padding: 0.375rem;
+	text-align: left;
+	margin: auto;
+}
+.quote-box-arrow {
+	background-color: #161616;
+	height: 1rem;
+	width: 1rem;
+	transform: rotate(45deg) translate(2.25rem, -3rem);
+	z-index: -10;
+}
+.arrow-container {
+	min-width: 48px;
+	min-height: 48px;
+	/* height: 100%; */
+	display: grid;
+	place-items: center;
+	z-index: 1;
+	cursor: pointer;
+	background: none;
+	border: none;
+}
+.arrow-container .icon {
+	font-size: 2rem;
+}
+.arrow-container.left {
+	left: 0;
+}
+.arrow-container.right {
+	right: 0;
+}
+.slider {
+	display: flex;
+	display: inline-flex;
+	align-items: center;
+	width: 50rem;
+	max-width: 100%;
+	touch-action: pan-y;
+	cursor: pointer;
+	overflow: hidden;
+}
+@media screen and (max-width: 600px) {
+	.arrow-container {
+		position: absolute;
+		/* height: 100%; */
+	}
+}

@@ -1,0 +1,21 @@
+ul.col2 {
+	font-family: var(--main-font);
+	font-weight: 600;
+	text-align: center;
+	text-transform: uppercase;
+	row-gap: 0;
+}
+ul.col2 a {
+	font-size: 1.5rem;
+}
+ul.col2 > li {
+	margin: 0;
+	padding: 1.5rem;
+	border-bottom: 0.1rem solid red;
+}
+@media screen and (max-width: 800px) {
+	ul.col2 {
+		columns: 1;
+		font-size: 1.25rem;
+	}
+}

@@ -1,0 +1,12 @@
+span.time {
+	font-family: 'Anton', sans-serif;
+	font-weight: 400;
+	letter-spacing: 0.125rem;
+	font-size: 6vw;
+	margin-top: 0.25rem;
+}
+@media screen and (max-width: 600px) {
+	span.time {
+		font-size: 8vw;
+	}
+}

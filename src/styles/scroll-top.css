@@ -1,0 +1,28 @@
+.scrollTop {
+  position: fixed;
+  width: 2.5rem;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  min-height: 2.5rem;
+  bottom: 2rem;
+  right: 2rem;
+  align-items: flex-end;
+  justify-content: flex-end;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.3s;
+  transition: opacity 0.4s;
+  color: var(--theme-color);
+  filter: drop-shadow(0 0.5rem 0.9375rem rgba(229, 193, 0, 0.175));
+}
+.scrollTop:hover {
+  opacity: 0.75;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.75;
+  }
+}
