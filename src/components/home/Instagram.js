@@ -1,28 +1,14 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import H2 from '../headings/H2';
 import '../../styles/components/instagram.css';
-const query = graphql`
-	{
-		allInstaNode {
-			posts: nodes {
-				id
-				localFile {
-					image: childImageSharp {
-						gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
-					}
-				}
-				caption
-			}
-		}
-	}
-`;
+import useQueries from '../../functions/useQueries'; 
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const Instagram = ({ show }) => {
-	const {
-		allInstaNode: { posts },
-	} = useStaticQuery(query);
+	const { formattedInstagramPosts: posts } = useQueries();
+	if (posts.length === 0) {
+		return null;
+	}
 	return (
 		<section className='instagram-section'>
 			<H2
@@ -43,11 +29,12 @@ const Instagram = ({ show }) => {
 			/>
 			<article className='grid-center'>
 				{posts.slice(0, 6).map((post, index) => {
-					const { caption, id, localFile } = post;
-					const image = getImage(localFile.image.gatsbyImageData);
+					const { id, gatsbyImageData, url, caption } = post;
+
+					const image = getImage(gatsbyImageData);
 					return (
 						<a
-							href='https://www.instagram.com/fitnfocusedpt/'
+							href={url}
 							target='_blank'
 							rel='noreferrer'
 							key={id}

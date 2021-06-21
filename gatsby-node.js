@@ -1,11 +1,10 @@
 const path = require('path');
 
-// create pages dynamically
 exports.createPages = async ({ graphql, actions }) => {
 	const { createPage } = actions;
 	const result = await graphql(`
 		{
-			allWpProgram {
+			allWpChallenge {
 				nodes {
 					featuredImage {
 						node {
@@ -23,7 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
 					title
 					excerpt
 					startDate
-					isChallenge
+					featured
 				}
 			}
 			allWpClass {
@@ -48,10 +47,10 @@ exports.createPages = async ({ graphql, actions }) => {
 		}
 	`);
 
-	result.data.allWpProgram.nodes.forEach((session) => {
+	result.data.allWpChallenge.nodes.forEach((session) => {
 		createPage({
-			path: `/fitness-programs/${session.slug}`,
-			component: path.resolve(`src/templates/program-template.js`),
+			path: `/fitness-challenges/${session.slug}`,
+			component: path.resolve(`src/templates/challenge-template.js`),
 			context: session,
 		});
 	});

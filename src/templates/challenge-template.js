@@ -6,11 +6,11 @@ import useApp from '../functions/useApp';
 import HeroImage from '../components/HeroImage';
 import TimerSection from '../components/TimerSection';
 import '../styles/pages/class-page.css';
-const Page = ({ pageContext }) => {
+const Page = ({ pageContext, path }) => {
 	const {
 		title,
 		excerpt,
-		start_date,
+		startDate,
 		featuredImage: {
 			node: {
 				localFile: {
@@ -21,7 +21,6 @@ const Page = ({ pageContext }) => {
 	} = pageContext;
 
 	const { isShown } = useApp();
-	const startDate = new Date(start_date);
 	return (
 		<>
 			<Layout
@@ -29,9 +28,9 @@ const Page = ({ pageContext }) => {
 					.split(' ')
 					.map((word) => word.slice(0, 1).toUpperCase() + word.slice(1))
 					.join(' ')}>
-				<HeroImage title={title} imageData={gatsbyImageData} />
-				{start_date && new Date(start_date) - Date.now() > 0 && (
-					<TimerSection startDate={startDate} show={true} />
+				<HeroImage title={title} imageData={gatsbyImageData} path={path} />
+				{startDate && new Date(startDate) - Date.now() > 0 && (
+					<TimerSection startDate={new Date(startDate)} show={true} />
 				)}
 				<section className='about-class'>
 					<article>{parse(excerpt)}</article>
@@ -39,7 +38,7 @@ const Page = ({ pageContext }) => {
 				<GetSignup
 					show={isShown[1]}
 					title='$28 for 28 days'
-					description={`Come try ${title} today!`}
+					description={`Come try the ${title} today!`}
 					buttonText='try now'
 				/>
 			</Layout>

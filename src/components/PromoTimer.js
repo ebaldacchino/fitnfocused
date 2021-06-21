@@ -5,7 +5,7 @@ import '../styles/components/promo-timer.css';
 
 const query = graphql`
 	{
-		wpProgram(isChallenge: { eq: true }) {
+		wpChallenge(featured: { eq: true }) {
 			slug
 			title
 			startDate
@@ -15,9 +15,11 @@ const query = graphql`
 
 const PromoTimer = ({ backup, show }) => {
 	const data = useStaticQuery(query);
-	const startDate = new Date(data.wpProgram.startDate);
+	const { wpChallenge: challenge } = data; 
+	if (!challenge) return null;
+	const startDate = new Date(challenge.startDate);
 	const now = new Date();
-	return !data.wpProgram || startDate - now < 0 ? (
+	return !challenge || startDate - now < 0 ? (
 		backup
 	) : (
 		<TimerSection show={show} data={data} startDate={startDate} />

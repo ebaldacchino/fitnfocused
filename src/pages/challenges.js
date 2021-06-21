@@ -13,19 +13,19 @@ const query = graphql`
 		}
 	}
 `;
-const Programs = () => {
+const Challenges = () => {
 	const {
 		imageSharp: { gatsbyImageData },
 	} = useStaticQuery(query);
-	const { programs } = useQueries();
+	const { challenges } = useQueries();
 	const { isShown } = useApp();
-	const description = `At Fit 'n' Focused, no two programs are the same. Our team of amazing coaches will motivate and inspire you to bring out the best in you. Come try any of our programs including${programs.map(
+	const description = `At Fit 'n' Focused, no two challenges are the same. Our team of amazing coaches will motivate and inspire you to bring out the best in you. Come try any of our programs including${challenges.map(
 		(session, id) =>
-			` ${id === programs.length - 1 ? 'and ' : ''}${session.title}`
+			` ${id === challenges.length - 1 ? 'and ' : ''}${session.title}`
 	)}!`;
 	return (
-		<Layout title='Programs' description={description}>
-			<HeroImage title='programs' imageData={gatsbyImageData} />
+		<Layout title='Challenges' description={description}>
+			<HeroImage title='challenges' imageData={gatsbyImageData} />
 			<section
 				className={`slide-in ${
 					isShown[0] ? 'on-screen' : ''
@@ -34,10 +34,10 @@ const Programs = () => {
 					Feel free to click on any of our programs below to find out more!
 				</p> */}
 				<ul className='col2'>
-					{programs.map(({ title, slug }, id) => {
+					{challenges.map(({ title, slug }, id) => {
 						return (
 							<li key={id} className='grid-center'>
-								<Link to={`/fitness-programs/${slug}`}>{title}</Link>
+								<Link to={`/fitness-challenges/${slug}`}>{title}</Link>
 							</li>
 						);
 					})}
@@ -56,4 +56,4 @@ const Programs = () => {
 	);
 };
 
-export default Programs;
+export default Challenges;

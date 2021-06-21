@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 import useApp from '../../functions/useApp';
 import { FaArrowCircleUp } from 'react-icons/fa';
 import IncompatibleBrowser from './IncompatibleBrowser';
-import Main from './Main';
+// import Main from './Main';
 import SubmittedForm from '../contact/SubmittedForm';
 
 const Layout = ({

@@ -13,13 +13,13 @@ section.trainers > article > .gatsby-image-wrapper {
 	width: 25vw;
 	height: 25vw;
 	object-fit: cover;
-	margin-bottom: 0.5rem; 
+	margin-bottom: 0.5rem;
 }
 section.trainers > article .icon {
 	font-size: 1.25rem;
-} 
+}
 .col3 > article > p {
-	text-align: center;
+	text-align: left;
 }
 @media screen and (max-width: 1200px) {
 	section.trainers > article > .gatsby-image-wrapper {
@@ -44,4 +44,4 @@ section.trainers > article .icon {
 	.trainers.col3 > article:not(:last-child) {
 		padding: 0 0 2.5rem;
 	}
-} 
+}

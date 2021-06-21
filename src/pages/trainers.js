@@ -20,10 +20,7 @@ const query = graphql`
 					node {
 						localFile {
 							image: childImageSharp {
-								gatsbyImageData(
-									placeholder: BLURRED
-									formats: [AUTO, WEBP]
-								)
+								gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
 							}
 						}
 					}
@@ -32,6 +29,7 @@ const query = graphql`
 				phone
 				email
 				instagram
+				position
 			}
 		}
 	}
@@ -54,6 +52,7 @@ const Trainers = () => {
 						email,
 						instagram,
 						title,
+						position,
 					} = trainer;
 					const image = getImage(
 						featuredImage.node.localFile.image.gatsbyImageData
@@ -63,7 +62,7 @@ const Trainers = () => {
 							key={id}
 							className={`slide-in ${isShown[id] ? 'on-screen' : ''}`}>
 							<h3>{title}</h3>
-							<GatsbyImage image={image} alt={title} />
+							<GatsbyImage image={image} alt={title} />{' '}
 							<ul className='social-links'>
 								<li>
 									<a href={`tel:${phone}`} target='_blank' rel='noreferrer'>
@@ -81,6 +80,7 @@ const Trainers = () => {
 									</a>
 								</li>
 							</ul>
+							{position && <h4>{position}</h4>}
 							{parse(excerpt)}
 						</article>
 					);

@@ -1,30 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { graphql, useStaticQuery } from 'gatsby';
 import H2 from '../headings/H2';
 import '../../styles/components/service-card.css';
 import ServiceCard from '../ServiceCard';
-const query = graphql`
-	{
-		allWpMembership {
-			memberships: nodes {
-				title
-				price
-				paymentFrequency
-				isFeatured
-				sellingPoint1
-				sellingPoint2
-				sellingPoint3
-				sellingPoint4
-				sellingPoint5
-			}
-		}
-	}
-`;
+import useQueries from '../../functions/useQueries';
 const MembershipSection = ({ show }) => {
-	const {
-		allWpMembership: { memberships },
-	} = useStaticQuery(query);
+	const { formattedMemberships } = useQueries();
 	return (
 		<section className='grid-center w100'>
 			<H2
@@ -36,8 +17,7 @@ const MembershipSection = ({ show }) => {
 				style={{
 					margin: '1.25rem 0',
 				}}>
-				{memberships
-					.filter((membership) => membership.isFeatured)
+				{formattedMemberships 
 					.slice(0, 3)
 					.map((membership, index) => {
 						return (

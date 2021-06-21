@@ -9,7 +9,7 @@ import '../../styles/components/hero-home.css';
 // https://betterprogramming.pub/how-to-get-videos-to-work-in-safari-with-gatsby-and-service-workers-9e1f099249ac
 const HeroSection = () => {
 	const { offset } = useApp();
-	const [isPlay, setIsPlay] = React.useState(false);
+	const [isPlay, setIsPlay] = React.useState(true);
 
 	React.useEffect(() => {
 		const video = document.querySelector('video');
@@ -17,7 +17,7 @@ const HeroSection = () => {
 	}, [isPlay]);
 	return (
 		<section className='hero-container no-margin-top'>
-			<video loop muted preload='metadata' crossOrigin='anonymous' playsInline poster={Poster}>
+			<video loop muted preload='metadata' crossOrigin='anonymous' playsInline poster={Poster} autoPlay>
 				{/* <source src={heroVideoWebm} type='video/webm' /> */}
 				<source src={heroVideoMp4} type='video/mp4' />
 			</video>

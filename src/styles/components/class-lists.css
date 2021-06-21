@@ -11,7 +11,7 @@ ul.col2 a {
 ul.col2 > li {
 	margin: 0;
 	padding: 1.5rem;
-	border-bottom: 0.1rem solid red;
+	border-bottom: 0.1rem solid var(--theme-color);
 }
 @media screen and (max-width: 800px) {
 	ul.col2 {

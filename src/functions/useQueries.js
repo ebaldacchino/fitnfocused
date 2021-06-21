@@ -9,12 +9,12 @@ const query = graphql`
 				slug
 			}
 		}
-		allWpProgram {
-			programs: nodes {
+		allWpChallenge {
+			challenges: nodes {
 				title
 				excerpt
 				slug
-				isChallenge
+				featured
 				startDate
 			}
 		}
@@ -31,16 +31,78 @@ const query = graphql`
 				sellingPoint5
 			}
 		}
+		wpChallenge(featured: { eq: true }) {
+			slug
+			title
+			startDate
+		}
+		allInstaNode(limit: 6) {
+			nodes {
+				id
+				localFile {
+					childImageSharp {
+						gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
+					}
+				}
+				caption
+			}
+		}
+		imageSharp(id: { eq: "100fba6a-685d-5375-a4c6-d418a3023379" }) {
+			gatsbyImageData(
+				width: 200
+				placeholder: BLURRED
+				formats: [AUTO, WEBP, AVIF]
+			)
+		}
 	}
 `;
 
 const Queries = () => {
 	const {
 		allWpClass: { classes },
-		allWpProgram: { programs },
+		allWpChallenge: { challenges },
 		allWpMembership: { memberships },
+		wpChallenge: challenge,
+		allInstaNode: { nodes: igPosts },
+		imageSharp: { gatsbyImageData: geoOverlayData },
 	} = useStaticQuery(query);
-	return { classes, programs, memberships };
+	const featuredMemberships = memberships.filter(
+		({ isFeatured }) => isFeatured
+	);
+	featuredMemberships.reverse();
+	const notFeaturedNorUpfrontMemberships = memberships.filter(
+		({ isFeatured, paymentFrequency }) =>
+			!isFeatured && paymentFrequency !== 'upfront'
+	);
+	const formattedMemberships = [
+		...featuredMemberships,
+		...notFeaturedNorUpfrontMemberships,
+	];
+	const formattedInstagramPosts = igPosts.map((post) => {
+		const {
+			caption,
+			id,
+			localFile: {
+				childImageSharp: { gatsbyImageData },
+			},
+		} = post;
+		return {
+			id,
+			caption,
+			gatsbyImageData,
+			url: `https://www.instagram.com/p/${id}`,
+		};
+	});
+
+	return {
+		classes,
+		challenges,
+		memberships,
+		challenge,
+		formattedMemberships,
+		formattedInstagramPosts,
+		geoOverlayData,
+	};
 };
 
 export default Queries;

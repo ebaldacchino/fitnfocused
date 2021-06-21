@@ -18,7 +18,7 @@ const Signup = () => {
 	} = useStaticQuery(query);
 	return (
 		<Layout title='Signup Today'>
-			<HeroImage title='signup today' imageData={gatsbyImageData} />
+			<HeroImage title='signup today' imageData={gatsbyImageData} noPromoBar />
 			<section className='w100 grid-center'>
 				<IframeResizer
 					src='https://fitnfocused.gymmasteronline.com/portal/signup?logo=0'

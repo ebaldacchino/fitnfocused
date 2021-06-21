@@ -5,7 +5,7 @@ import BackgroundImage from 'gatsby-background-image';
 import H1 from './headings/H1';
 import PromoBar from './PromoBar';
 import '../styles/components/hero-image-container.css';
-const HeroImage = ({ title, imageData, description }) => {
+const HeroImage = ({ title, imageData, description, path, noPromoBar }) => {
 	const image = getImage(imageData);
 	const bgImage = convertToBgImage(image);
 	return (
@@ -15,7 +15,7 @@ const HeroImage = ({ title, imageData, description }) => {
 					<H1 className='hero-title' title={title} description={description} />
 				</div>
 			</BackgroundImage>
-			<PromoBar />
+			{!noPromoBar && <PromoBar path={path} />}
 		</section>
 	);
 };

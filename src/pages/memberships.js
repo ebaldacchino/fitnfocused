@@ -19,31 +19,16 @@ const Memberships = () => {
 		imageSharp: { gatsbyImageData },
 	} = useStaticQuery(query);
 
-	const { memberships } = useQueries();
+	const { formattedMemberships } = useQueries();
+	const memberships = formattedMemberships
 	const { isShown } = useApp();
-	const featuredMemberships = memberships.filter(
-		({ isFeatured }) => isFeatured
-	);
-	const notFeaturedNorUpfrontMemberships = memberships.filter(
-		({ isFeatured, paymentFrequency }) =>
-			!isFeatured && paymentFrequency !== 'upfront'
-	);
 	return (
 		<Layout title='Memberships'>
 			<HeroImage title='memberships' imageData={gatsbyImageData} />
 			<section className='col3'>
-				{featuredMemberships.map((membership, index) => {
+				{memberships.map((membership, index) => {
 					return (
 						<ServiceCard key={index} {...membership} show={isShown[index]} />
-					);
-				})}
-				{notFeaturedNorUpfrontMemberships.map((membership, index) => {
-					return (
-						<ServiceCard
-							key={index}
-							{...membership}
-							show={isShown[index + featuredMemberships.length]}
-						/>
 					);
 				})}
 			</section>

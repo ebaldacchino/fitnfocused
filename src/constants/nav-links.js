@@ -10,8 +10,8 @@ export const links = [
 		link: '/classes',
 	},
 	{
-		text: 'programs',
-		link: '/programs',
+		text: 'challenges',
+		link: '/challenges',
 	},
 	{
 		text: 'memberships',
@@ -43,4 +43,4 @@ const NavLinks = ({ styleClass }) => (
 	</nav>
 );
 
-export default NavLinks
+export default NavLinks;
