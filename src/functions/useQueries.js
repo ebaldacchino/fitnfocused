@@ -47,13 +47,6 @@ const query = graphql`
 				caption
 			}
 		}
-		imageSharp(id: { eq: "100fba6a-685d-5375-a4c6-d418a3023379" }) {
-			gatsbyImageData(
-				width: 200
-				placeholder: BLURRED
-				formats: [AUTO, WEBP, AVIF]
-			)
-		}
 	}
 `;
 
@@ -64,7 +57,6 @@ const Queries = () => {
 		allWpMembership: { memberships },
 		wpChallenge: challenge,
 		allInstaNode: { nodes: igPosts },
-		imageSharp: { gatsbyImageData: geoOverlayData },
 	} = useStaticQuery(query);
 	const featuredMemberships = memberships.filter(
 		({ isFeatured }) => isFeatured
@@ -101,7 +93,6 @@ const Queries = () => {
 		challenge,
 		formattedMemberships,
 		formattedInstagramPosts,
-		geoOverlayData,
 	};
 };
 

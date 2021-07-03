@@ -1,36 +1,25 @@
 import React from 'react';
 import { FaAngleDoubleRight } from 'react-icons/fa';
-import { Link } from 'gatsby';
-import { getImage } from 'gatsby-plugin-image';
-import { convertToBgImage } from 'gbimage-bridge';
-import BackgroundImage from 'gatsby-background-image';
+import { Link } from 'gatsby'; 
 import '../styles/components/promo-bar.css';
 import useQueries from '../functions/useQueries';
 
-const Validator = ({ isHomePage, path }) => {
+const Validator = ({ path }) => {
 	const { challenge } = useQueries();
 	if (!challenge) return null;
 	const startDate = new Date(challenge.startDate);
 	const now = new Date();
 	return startDate - now < 0 ? null : (
-		<PromoBar {...challenge} isHomePage={isHomePage} path={path} />
+		<PromoBar {...challenge} path={path} />
 	);
 };
 
-const PromoBar = ({ slug, title, isHomePage, path }) => {
-	const { geoOverlayData } = useQueries();
-
-	const image = getImage(geoOverlayData);
-	const bgImage = convertToBgImage(image);
-
+const PromoBar = ({ slug, title, path }) => {
 	const isAdvertisedChallenge = path === `/fitness-challenges/${slug}`;
-
 	const linkPath = isAdvertisedChallenge
 		? '/signup'
 		: `/fitness-challenges/${slug}`;
 	return (
-		<>
-			<BackgroundImage {...bgImage}>
 				<Link
 					to={linkPath}
 					className='no-margin-top flex-center promo-container'>
@@ -39,9 +28,7 @@ const PromoBar = ({ slug, title, isHomePage, path }) => {
 						<span>Our next {title} is on now</span>
 						<FaAngleDoubleRight />
 					</div>
-				</Link>
-			</BackgroundImage>
-		</>
+				</Link> 
 	);
 };
 
