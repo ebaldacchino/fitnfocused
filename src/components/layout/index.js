@@ -8,6 +8,7 @@ import { FaArrowCircleUp } from 'react-icons/fa';
 import IncompatibleBrowser from './IncompatibleBrowser';
 // import Main from './Main';
 import SubmittedForm from '../contact/SubmittedForm';
+import Main from './Main';
 
 const Layout = ({
 	children,
@@ -45,7 +46,7 @@ const Layout = ({
 				<>
 					<Navbar toggle={toggle} isOpen={isOpen} isHome={isHome} />
 					<Sidebar toggle={toggle} isOpen={isOpen} />
-					<main>{children}</main>
+					<Main>{children}</Main>
 					{offset > windowHeight / 2 && (
 						<FaArrowCircleUp className='scrollTop' onClick={scrollTop} />
 					)}
