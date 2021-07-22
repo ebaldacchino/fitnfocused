@@ -145,7 +145,9 @@ const CancellationsForm = ({
 			{serverState.submitting && errors.message && (
 				<small>{errors.message}</small>
 			)}
-			<button className='btn'>send</button>
+			<button className='btn' disabled={serverState.submitting}>
+				{serverState.submitting ? 'Sending...' : 'send'}
+			</button>
 		</form>
 	);
 };

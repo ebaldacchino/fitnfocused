@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from 'react';
 const ContactForm = ({
 	serverState,
 	values,
@@ -67,7 +67,9 @@ const ContactForm = ({
 					<small>{errors.message}</small>
 				)}
 
-				<button className='btn'>send</button>
+				<button className='btn' disabled={serverState.submitting}>
+					{serverState.submitting ? 'Sending...' : 'send'}
+				</button>
 			</form>
 		</>
 	);
