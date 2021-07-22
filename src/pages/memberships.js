@@ -8,8 +8,8 @@ import ServiceCard from '../components/ServiceCard';
 import useQueries from '../functions/useQueries';
 const query = graphql`
 	{
-		imageSharp(id: { eq: "b196d662-22c4-5cd6-9ffa-67828c3b9cd9" }) {
-			gatsbyImageData
+		imageSharp(id: { eq: "e8e20fec-b4a5-567e-a00f-0b708f8a71e8" }) {
+			gatsbyImageData(formats: [AUTO, WEBP, AVIF])
 		}
 	}
 `;

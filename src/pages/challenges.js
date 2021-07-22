@@ -8,8 +8,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import useQueries from '../functions/useQueries';
 const query = graphql`
 	{
-		imageSharp(id: { eq: "70fed8fc-3fb1-5958-acfd-c92c1cfb9ac1" }) {
-			gatsbyImageData
+		imageSharp(id: { eq: "a8971f23-09fd-5726-857d-d55e99208d14" }) {
+			gatsbyImageData(formats: [AUTO, WEBP, AVIF])
 		}
 	}
 `;

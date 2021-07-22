@@ -10,10 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
 						node {
 							localFile {
 								childImageSharp {
-									gatsbyImageData(
-										placeholder: BLURRED
-										formats: [AUTO, WEBP]
-									)
+									gatsbyImageData(formats: [AUTO, WEBP, AVIF])
 								}
 							}
 						}
@@ -31,10 +28,7 @@ exports.createPages = async ({ graphql, actions }) => {
 						node {
 							localFile {
 								childImageSharp {
-									gatsbyImageData(
-										placeholder: BLURRED
-										formats: [AUTO, WEBP]
-									)
+									gatsbyImageData(formats: [AUTO, WEBP, AVIF])
 								}
 							}
 						}

@@ -41,7 +41,7 @@ const query = graphql`
 				id
 				localFile {
 					childImageSharp {
-						gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
+						gatsbyImageData(formats: [AUTO, WEBP, AVIF])
 					}
 				}
 				caption

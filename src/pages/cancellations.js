@@ -3,19 +3,18 @@ import Layout from '../components/layout';
 import useApp from '../functions/useApp';
 import Form from '../components/cancellations/Form';
 import useForm from '../functions/useForm';
-import validate from '../functions/validateCancellations'; 
+import validate from '../functions/validateCancellations';
 import HeroImage from '../components/HeroImage';
 import { graphql, useStaticQuery } from 'gatsby';
 import '../styles/contact.css';
 
 const query = graphql`
 	{
-		imageSharp(id: { eq: "70fed8fc-3fb1-5958-acfd-c92c1cfb9ac1" }) {
-			gatsbyImageData
+		imageSharp(id: { eq: "e8e20fec-b4a5-567e-a00f-0b708f8a71e8" }) {
+			gatsbyImageData(formats: [AUTO, WEBP, AVIF])
 		}
 	}
 `;
-
 const Cancellations = () => {
 	const {
 		imageSharp: { gatsbyImageData },

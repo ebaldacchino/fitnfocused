@@ -11,8 +11,8 @@ import '../styles/contact.css';
 
 const query = graphql`
 	{
-		imageSharp(id: { eq: "70fed8fc-3fb1-5958-acfd-c92c1cfb9ac1" }) {
-			gatsbyImageData
+		imageSharp(id: { eq: "c7bb3d9e-3728-5524-9a11-a314595d04fa" }) {
+			gatsbyImageData(formats: [AUTO, WEBP, AVIF])
 		}
 	}
 `;
@@ -45,8 +45,7 @@ const Contact = () => {
 				setServerState({ ...serverState, submitted: false })
 			}
 			submittedFormIsVisible={serverState.submitted}
-			submittedForm
-			>
+			submittedForm>
 			<HeroImage title='get in touch' imageData={gatsbyImageData} />
 			<section className='grid-center col2'>
 				<Form

@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout';
-import { FaPhone, FaMailBulk, FaInstagram } from 'react-icons/fa';
+import { FaPhone, FaInstagram } from 'react-icons/fa';
 import useApp from '../functions/useApp';
 import { graphql, useStaticQuery } from 'gatsby';
 import parse from 'html-react-parser';
@@ -10,8 +10,8 @@ import HeroImage from '../components/HeroImage';
 
 const query = graphql`
 	{
-		imageSharp(id: { eq: "70fed8fc-3fb1-5958-acfd-c92c1cfb9ac1" }) {
-			gatsbyImageData
+		imageSharp(id: { eq: "f94e7609-de66-5f3b-bb14-9f7aea9af614" }) {
+			gatsbyImageData(formats: [AUTO, WEBP, AVIF])
 		}
 		allWpTrainer {
 			trainers: nodes {
@@ -20,14 +20,13 @@ const query = graphql`
 					node {
 						localFile {
 							image: childImageSharp {
-								gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
+								gatsbyImageData(formats: [AUTO, WEBP])
 							}
 						}
 					}
 				}
 				excerpt
-				phone
-				email
+				phone 
 				instagram
 				position
 			}
@@ -45,15 +44,8 @@ const Trainers = () => {
 			<HeroImage title='trainers' imageData={gatsbyImageData} />
 			<section className='no-margin-top col3 trainers'>
 				{trainers.map((trainer, id) => {
-					const {
-						featuredImage,
-						excerpt,
-						phone,
-						email,
-						instagram,
-						title,
-						position,
-					} = trainer;
+					const { featuredImage, excerpt, phone, instagram, title, position } =
+						trainer;
 					const image = getImage(
 						featuredImage.node.localFile.image.gatsbyImageData
 					);
@@ -65,13 +57,11 @@ const Trainers = () => {
 							<GatsbyImage image={image} alt={title} />{' '}
 							<ul className='social-links'>
 								<li>
-									<a href={`tel:${phone}`} target='_blank' rel='noreferrer'>
+									<a
+										href={`tel:${phone.replace(/\s/g, '')}`}
+										target='_blank'
+										rel='noreferrer'>
 										<FaPhone className='icon' />
-									</a>
-								</li>
-								<li>
-									<a href={`mailto:${email}`} target='_blank' rel='noreferrer'>
-										<FaMailBulk className='icon' />
 									</a>
 								</li>
 								<li>

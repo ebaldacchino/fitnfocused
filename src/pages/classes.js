@@ -10,12 +10,12 @@ import useQueries from '../functions/useQueries';
 
 const query = graphql`
 	{
-		imageSharp(id: { eq: "70fed8fc-3fb1-5958-acfd-c92c1cfb9ac1" }) {
-			gatsbyImageData
-		} 
+		imageSharp(id: { eq: "f369577d-956c-5b7f-98f0-fc4873cdf708" }) {
+			gatsbyImageData(formats: [AUTO, WEBP, AVIF])
+		}
 	}
 `;
-const Classes = ( ) => {
+const Classes = () => {
 	const {
 		imageSharp: { gatsbyImageData },
 	} = useStaticQuery(query);

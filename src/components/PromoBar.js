@@ -1,17 +1,29 @@
 import React from 'react';
 import { FaAngleDoubleRight } from 'react-icons/fa';
-import { Link } from 'gatsby'; 
+import { Link } from 'gatsby';
 import '../styles/components/promo-bar.css';
 import useQueries from '../functions/useQueries';
+import TryNow from './getSignup';
 
 const Validator = ({ path }) => {
 	const { challenge } = useQueries();
-	if (!challenge) return null;
+	if (!challenge)
+		return (
+			<Link
+				to={'/signup'}
+				className='no-margin-top flex-center promo-container'>
+				<h2 className='glow no-padding-no-margin'>$28 for 28 days</h2>
+				<div className='flex-center'>
+					<span style={{ textTransform: 'capitalize' }}>
+						Come try Geelong's best value offer today
+					</span>
+					<FaAngleDoubleRight />
+				</div>
+			</Link>
+		);
 	const startDate = new Date(challenge.startDate);
 	const now = new Date();
-	return startDate - now < 0 ? null : (
-		<PromoBar {...challenge} path={path} />
-	);
+	return startDate - now < 0 ? null : <PromoBar {...challenge} path={path} />;
 };
 
 const PromoBar = ({ slug, title, path }) => {
@@ -20,15 +32,13 @@ const PromoBar = ({ slug, title, path }) => {
 		? '/signup'
 		: `/fitness-challenges/${slug}`;
 	return (
-				<Link
-					to={linkPath}
-					className='no-margin-top flex-center promo-container'>
-					<h2 className='glow no-padding-no-margin'>take the challenge</h2>
-					<div className='flex-center'>
-						<span>Our next {title} is on now</span>
-						<FaAngleDoubleRight />
-					</div>
-				</Link> 
+		<Link to={linkPath} className='no-margin-top flex-center promo-container'>
+			<h2 className='glow no-padding-no-margin'>take the challenge</h2>
+			<div className='flex-center'>
+				<span>Our next {title} is on now</span>
+				<FaAngleDoubleRight />
+			</div>
+		</Link>
 	);
 };
 
