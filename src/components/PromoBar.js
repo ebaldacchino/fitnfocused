@@ -14,8 +14,8 @@ const Validator = ({ path }) => {
 				className='no-margin-top flex-center promo-container'>
 				<h2 className='glow no-padding-no-margin'>$28 for 28 days</h2>
 				<div className='flex-center'>
-					<span style={{ textTransform: 'capitalize' }}>
-						Come try Geelong's best value offer today
+					<span>
+						try Geelong's best offer today
 					</span>
 					<FaAngleDoubleRight />
 				</div>

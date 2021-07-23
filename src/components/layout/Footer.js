@@ -18,7 +18,7 @@ const Footer = () => {
 				<FooterLinks />
 
 				<p>
-					Copyright © {new Date().getFullYear()} Raw Muscle | Website by{' '}
+					Copyright © {new Date().getFullYear()} Fit N Focused | Website by{' '}
 					<a
 						href='https://ebaldacchino.netlify.app'
 						target='_blank'

@@ -5,6 +5,7 @@
 	overflow: hidden;
 	position: relative;
 	display: flex;
+	margin-top: 1.25rem;
 }
 .quote-box {
 	display: flex;

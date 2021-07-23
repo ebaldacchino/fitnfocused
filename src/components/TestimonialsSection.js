@@ -92,10 +92,7 @@ const Testimonials = ({ show }) => {
 				className={`info testimonials-section slide-in ${
 					show ? 'on-screen' : ''
 				}`}>
-				<H2
-					title='Testimonials'
-					description="Don't trust us? Try the other members!"
-				/>
+				<H2 title='Testimonials' />
 				<article className='flex-center'>
 					<button
 						className='arrow-container left'
