@@ -6,8 +6,9 @@ const useForm = (validate, startValues) => {
 	const [errors, setErrors] = useState({});
 	const [serverState, setServerState] = useState({
 		submitting: false,
-		status: null,
+		// status: null,
 		submitted: false,
+		validating: false,
 	});
 	const handleChange = (e) => {
 		const { name, value, checked, type } = e.target;
@@ -20,7 +21,9 @@ const useForm = (validate, startValues) => {
 	const handleResponse = (ok, msg) => {
 		setServerState({
 			submitting: false,
-			status: { ok, msg },
+			// status: { ok, msg },
+			submitted: true,
+			validating: false,
 		});
 		ok && setValues(startValues);
 	};
@@ -29,10 +32,11 @@ const useForm = (validate, startValues) => {
 		setServerState({
 			...serverState,
 			submitting: true,
+			validating: true,
 		});
-		if (Object.keys(errors).length === 0) {
+		const hasErrors = Object.keys(errors).length === 0;
+		if (hasErrors) {
 			const form = e.target;
-
 			axios({
 				method: 'POST',
 				url: process.env.FORMSPREE_URL,
@@ -44,13 +48,19 @@ const useForm = (validate, startValues) => {
 						...serverState,
 						submitting: false,
 						submitted: true,
+						validating: false,
 					});
 				})
 				.catch((r) => {
 					handleResponse(false, r.response.data.error);
 				});
-		}
-	};
+		} 
+		setServerState({
+			...serverState,
+			submitting: false,
+			validating: true,
+		});
+	}; 
 	const updateErrors = () => validate && setErrors(validate(values));
 	useEffect(updateErrors, [values, validate]);
 

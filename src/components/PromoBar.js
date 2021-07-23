@@ -3,7 +3,7 @@ import { FaAngleDoubleRight } from 'react-icons/fa';
 import { Link } from 'gatsby';
 import '../styles/components/promo-bar.css';
 import useQueries from '../functions/useQueries';
-import TryNow from './getSignup';
+// import TryNow from './getSignup';
 
 const Validator = ({ path }) => {
 	const { challenge } = useQueries();
