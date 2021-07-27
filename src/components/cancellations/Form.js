@@ -16,7 +16,7 @@ const CancellationsForm = ({
 			<label htmlFor='firstname'>First Name</label>
 			<input
 				className={
-					!serverState.submitting ? '' : errors.firstname ? 'error' : 'success'
+					!serverState.validating ? '' : errors.firstname ? 'error' : 'success'
 				}
 				type='text'
 				name='firstname'
@@ -24,13 +24,13 @@ const CancellationsForm = ({
 				value={values.firstname}
 				onChange={handleChange}
 			/>
-			{serverState.submitting && errors.firstname && (
+			{serverState.validating && errors.firstname && (
 				<small>{errors.firstname}</small>
 			)}
 			<label htmlFor='surname'>Surname</label>
 			<input
 				className={
-					!serverState.submitting ? '' : errors.surname ? 'error' : 'success'
+					!serverState.validating ? '' : errors.surname ? 'error' : 'success'
 				}
 				type='text'
 				name='surname'
@@ -38,7 +38,7 @@ const CancellationsForm = ({
 				value={values.surname}
 				onChange={handleChange}
 			/>
-			{serverState.submitting && errors.surname && (
+			{serverState.validating && errors.surname && (
 				<small>{errors.surname}</small>
 			)}
 			<label htmlFor='email'>Email</label>
@@ -46,25 +46,25 @@ const CancellationsForm = ({
 				type='email'
 				name='email'
 				className={
-					!serverState.submitting ? '' : errors.email ? 'error' : 'success'
+					!serverState.validating ? '' : errors.email ? 'error' : 'success'
 				}
 				value={values.email}
 				placeholder='e.g. johndoe@gmail.com'
 				onChange={handleChange}
 			/>
-			{serverState.submitting && errors.email && <small>{errors.email}</small>}
+			{serverState.validating && errors.email && <small>{errors.email}</small>}
 			<label htmlFor='phone'>Phone</label>
 			<input
 				type='phone'
 				name='phone'
 				className={
-					!serverState.submitting ? '' : errors.phone ? 'error' : 'success'
+					!serverState.validating ? '' : errors.phone ? 'error' : 'success'
 				}
 				value={values.phone}
 				placeholder='e.g. 0499 999 999'
 				onChange={handleChange}
 			/>
-			{serverState.submitting && errors.phone && <small>{errors.phone}</small>}
+			{serverState.validating && errors.phone && <small>{errors.phone}</small>}
 			{/* <label htmlFor='type'>Suspend or Cancel</label> */}
 			<div className='form-control'>
 				<input
@@ -92,7 +92,7 @@ const CancellationsForm = ({
 			{/* <select
 				name='type'
 				className={
-					!serverState.submitting ? '' : errors.type ? 'error' : 'success'
+					!serverState.validating ? '' : errors.type ? 'error' : 'success'
 				}
 				value={values.type}
 				onChange={handleChange}
@@ -101,18 +101,18 @@ const CancellationsForm = ({
 				<option value='Suspend'>Suspend my membership</option>
 				<option value='Cancel'>Cancel my membership</option>
 			</select> */}
-			{serverState.submitting && errors.type && <small>{errors.type}</small>}
+			{serverState.validating && errors.type && <small>{errors.type}</small>}
 			<label htmlFor='from'>Start Date</label>
 			<input
 				type='date'
 				name='from'
 				className={
-					!serverState.submitting ? '' : errors.from ? 'error' : 'success'
+					!serverState.validating ? '' : errors.from ? 'error' : 'success'
 				}
 				value={values.from}
 				onChange={handleChange}
 			/>
-			{serverState.submitting && errors.from && <small>{errors.from}</small>}
+			{serverState.validating && errors.from && <small>{errors.from}</small>}
 			{values.type === 'Suspend' && (
 				<>
 					<label htmlFor='until'>End Date</label>
@@ -120,12 +120,12 @@ const CancellationsForm = ({
 						type='date'
 						name='until'
 						className={
-							!serverState.submitting ? '' : errors.until ? 'error' : 'success'
+							!serverState.validating ? '' : errors.until ? 'error' : 'success'
 						}
 						value={values.until}
 						onChange={handleChange}
 					/>
-					{serverState.submitting && errors.until && (
+					{serverState.validating && errors.until && (
 						<small>{errors.until}</small>
 					)}
 				</>
@@ -134,7 +134,7 @@ const CancellationsForm = ({
 			<textarea
 				name='message'
 				className={
-					!serverState.submitting ? '' : errors.message ? 'error' : 'success'
+					!serverState.validating ? '' : errors.message ? 'error' : 'success'
 				}
 				placeholder='Please leave your message here...'
 				value={values.message}
@@ -142,7 +142,7 @@ const CancellationsForm = ({
 				cols='30'
 				rows='10'
 			/>
-			{serverState.submitting && errors.message && (
+			{serverState.validating && errors.message && (
 				<small>{errors.message}</small>
 			)}
 			<button className='btn' disabled={serverState.submitting}>
