@@ -19,7 +19,7 @@ const Challenges = () => {
 	} = useStaticQuery(query);
 	const { challenges } = useQueries();
 	const { isShown } = useApp();
-	const description = `At Fit 'n' Focused, no two challenges are the same. Our team of amazing coaches will motivate and inspire you to bring out the best in you. Come try any of our programs including${challenges.map(
+	const description = `At Fit N Focused, no two challenges are the same. Our team of amazing coaches will motivate and inspire you to bring out the best in you. Come try any of our programs including${challenges.map(
 		(session, id) =>
 			` ${id === challenges.length - 1 ? 'and ' : ''}${session.title}`
 	)}!`;

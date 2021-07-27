@@ -21,7 +21,7 @@ const Classes = () => {
 	} = useStaticQuery(query);
 	const { classes } = useQueries();
 	const { isShown } = useApp();
-	const description = `At Fit 'n' Focused, no two classes are the same. Our team of amazing coaches will motivate and inspire you to bring out the best in you. Come try any of our classes including${classes.map(
+	const description = `At Fit N Focused, no two classes are the same. Our team of amazing coaches will motivate and inspire you to bring out the best in you. Come try any of our classes including${classes.map(
 		(session, id) =>
 			` ${id === classes.length - 1 ? 'and ' : ''}${session.title}`
 	)}!`;

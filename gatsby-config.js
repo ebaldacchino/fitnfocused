@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
 	siteMetadata: {
-		title: `Fit 'n' Focused`,
+		title: `Fit N Focused`,
 		description: `Geelong's best kid-friendly fitness classes!`,
 		author: 'Edward Baldacchino',
 		twitterUsername: '@john_doe',

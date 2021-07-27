@@ -19,6 +19,8 @@ const aboutText = `<p>At Fit N Focused we are more than just a gym, we are a com
 <p>That is why we offer a variety of classes for all ages and fitness levels, including our Bootcamp Bandits for your children and our Mum, Dads N Little Ones for all our busy parents where your little ones come in for free with you</p>
 <p>Check us out for yourself and get ready to transform your fitness and health whilst developing lifelong friends in the process.</p>
 `;
+const description =
+	"World class kid friendly gym classes in the heart of Geelong. From boxing to bootcamps, group fitness to personal training, we have it!";
 
 const HomePage = ({ path }) => {
 	const { isShown } = useApp();
@@ -28,7 +30,7 @@ const HomePage = ({ path }) => {
 	const { challenge } = useQueries();
 	const adjust = (x) => (challenge ? x : x - 1);
 	return (
-		<Layout path={path} isHome>
+		<Layout path={path} description={description} isHome>
 			<HeroSection />
 			<section className='w100 no-margin-top'>
 				<PromoBar isHomePage />
